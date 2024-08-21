@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Instalar ZeroTier
+curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/main/doc/contact%40zerotier.com.gpg' | gpg --import && \
+if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
+
 # Actualizar los paquetes existentes
 sudo apt update
 sudo apt upgrade -y
@@ -30,4 +34,10 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Verificar que Docker Compose esté instalado
 docker-compose --version
 
-echo "Docker y Docker Compose han sido instalados exitosamente."
+# Preguntar al usuario en qué puerto desea instalar Portainer
+read -p "Por favor, ingrese el puerto en el que desea instalar Portainer (por ejemplo, 9000): " PORTAINER_PORT
+
+# Descargar e instalar Portainer usando Docker en el puerto elegido por el usuario
+sudo docker run -d -p ${PORTAINER_PORT}:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+echo "ZeroTier, Docker, Docker Compose y Portainer han sido instalados exitosamente. Portainer está disponible en el puerto $PORTAINER_PORT."
