@@ -2,3 +2,5 @@ curl -o docker-compose.yml \
 https://raw.githubusercontent.com/kestra-io/kestra/develop/docker-compose.yml
 
 docker-compose up -d
+
+acordarse de modificar el usuario y contraseña en el docker-compose.yml
