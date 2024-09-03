@@ -4,3 +4,16 @@ https://raw.githubusercontent.com/kestra-io/kestra/develop/docker-compose.yml
 docker-compose up -d
 
 acordarse de modificar el usuario y contraseña en el docker-compose.yml
+
+editamos esto 
+kestra:
+          server:
+            basic-auth:
+              enabled: true
+              username: "admin@kestra.io" # it must be a valid email address
+              password: kestra
+
+enabled en vez de false es true
+
+username nombre@algo.com o santiagon o lo que fuese
+password lo que vos quieras
