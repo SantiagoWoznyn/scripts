@@ -15,5 +15,5 @@ kestra:
 
 enabled en vez de false es true
 
-username nombre@algo.com o santiagon o lo que fuese
+username nombre@algo.com o o lo que fuese
 password lo que vos quieras
