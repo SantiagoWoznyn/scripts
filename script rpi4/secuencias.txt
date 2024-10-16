@@ -8,4 +8,8 @@ tambien en docker poner el script de las 500 templates
 https://github.com/Lissy93/portainer-templates
 https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json
 
+instalar tambien esto
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+
 
