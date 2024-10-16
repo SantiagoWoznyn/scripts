@@ -1,3 +1,11 @@
 instalar casa os
 
-instalar omv para rpi4
+instalar omv para rpi4   opcional
+script no me acuerdo donde esta? ponerlo tambien el script de omv por las dudas
+
+
+tambien en docker poner el script de las 500 templates
+https://github.com/Lissy93/portainer-templates
+https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json
+
+
