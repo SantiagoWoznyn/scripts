@@ -1,4 +1,5 @@
 instalar casa os
+curl -fsSL https://get.casaos.io | sudo bash
 
 instalar omv para rpi4   opcional
 script no me acuerdo donde esta? ponerlo tambien el script de omv por las dudas
