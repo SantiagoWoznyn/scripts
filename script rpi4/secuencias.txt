@@ -3,6 +3,15 @@ curl -fsSL https://get.casaos.io | sudo bash
 
 instalar omv para rpi4   opcional
 script no me acuerdo donde esta? ponerlo tambien el script de omv por las dudas
+https://github.com/OpenMediaVault-Plugin-Developers/installScript/tree/master
+
+
+cambiar el puerto
+
+login via SSH
+run omv-firstaid
+Option-2 "configure web control panel"
+select port
 
 
 tambien en docker poner el script de las 500 templates
