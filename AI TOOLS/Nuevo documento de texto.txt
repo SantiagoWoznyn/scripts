@@ -1,3 +1,5 @@
-TREMENDA PAGINA
 
-https://aifindy.com
+https://tteck.github.io/Proxmox/
+
+muchisima info y script para proxmox
+hacer lista y descargarlo ponerlo en una carpeta
