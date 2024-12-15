@@ -1,24 +1,19 @@
 #!/bin/bash
 
-# Solicitar el directorio para los datos de MySQL
-read -p "Ingrese el directorio donde desea almacenar los datos de MySQL (por ejemplo, /opt/mysql-data): " mysql_dir
-sudo mkdir -p "$mysql_dir"
+# Solicitar el directorio para almacenar los datos del contenedor
+read -p "Ingrese la ruta donde desea almacenar los datos del contenedor (por ejemplo, /opt/mis_datos): " data_dir
+mkdir -p "$data_dir"
 
-# Solicitar un nombre de usuario y contraseña para MySQL
-read -p "Ingrese el nombre de usuario para MySQL: " mysql_user
-read -sp "Ingrese la contraseña para MySQL: " mysql_password
-echo
-
-# Crear el archivo .env para las variables de entorno
-cat <<EOL | sudo tee sqlserver.env
+# Crear archivos .env para las variables de entorno necesarias
+cat <<EOL > sqlserver.env
 MYSQL_ROOT_PASSWORD=tu_contraseña
 MYSQL_DATABASE=mi_base_datos
-MYSQL_USER=$mysql_user
-MYSQL_PASSWORD=$mysql_password
+MYSQL_USER=usuario_mysql
+MYSQL_PASSWORD=contraseña_mysql
 EOL
 
 # Crear el archivo docker-compose.yml
-cat <<EOL | sudo tee docker-compose.yml
+cat <<EOL > docker-compose.yml
 version: '3.9'
 
 networks:
@@ -39,14 +34,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "tu_contraseña"
       MYSQL_DATABASE: "mi_base_datos"
-      MYSQL_USER: "$mysql_user"
-      MYSQL_PASSWORD: "$mysql_password"
+      MYSQL_USER: "usuario_mysql"
+      MYSQL_PASSWORD: "contraseña_mysql"
     ports:
       - '3306:3306'
     volumes:
-      - mysql-data:/var/lib/mysql
-      - /c/docker/shared:/usr/shared
+      - ${data_dir}:/var/lib/mysql
 EOL
 
 # Levantar los servicios con Docker Compose
-sudo docker-compose up -d
+docker-compose up -d
