@@ -3,7 +3,9 @@
 # Solicitar el directorio para Microsoft SQL Server
 read -p "Ingrese el directorio donde desea almacenar los datos de Microsoft SQL Server (por ejemplo, /opt/mssql): " mssql_dir
 mkdir -p "$mssql_dir"
-cd "$mssql_dir" || exit 1
+
+# Cambiar al directorio creado
+cd "$mssql_dir" || { echo "Hubo un problema al crear el directorio. Verifica permisos o espacio disponible."; exit 1; }
 
 # Solicitar la contraseña del usuario SA
 read -sp "Ingrese la contraseña para el usuario SA (mínimo 8 caracteres): " sa_password
