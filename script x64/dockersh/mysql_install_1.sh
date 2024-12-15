@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#IMPORTANTE
+# Paso 1: Descargar el script de instalación de MySQL desde GitHub
+# sudo curl -O https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20x64/dockersh/mysql_install_1.sh
+
+# Paso 2: Ejecutar el script descargado usando `sh`
+# sudo sh mysql_install_1.sh
+
 # Solicitar el directorio para Microsoft SQL Server
 read -p "Ingrese el directorio donde desea almacenar los datos de Microsoft SQL Server (por ejemplo, /opt/mssql): " mssql_dir
 
