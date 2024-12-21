@@ -3,6 +3,7 @@ admin software list docker and other software docker apps
 portainer ,joplin ,kestra ,microsoft sql server,etc
 
 descargarlo e instalarlo
+ curl + -sSL + https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main...(directorio) + | bash
  curl -sSL https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main...(directorio) | bash
  
  ejemplo : 
