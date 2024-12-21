@@ -9,4 +9,5 @@ descargarlo e instalarlo
  curl -sSL https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main...(directorio) | bash
  
  ejemplo : 
+ 
  curl -sSL https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20rpi4/dockersc/gitea_install_sc_rpi4.sh | bash
