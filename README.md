@@ -1,4 +1,9 @@
-admin software list docker
+admin software list docker and other software docker apps
 
+portainer ,joplin ,kestra ,microsoft sql server,etc
 
-portainer ,joplin ,kestra ,microsoft sql server
+descargarlo e instalarlo
+ curl -sSL https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main...(directorio) | bash
+ 
+ ejemplo : 
+ curl -sSL https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20rpi4/dockersc/gitea_install_sc_rpi4.sh | bash
