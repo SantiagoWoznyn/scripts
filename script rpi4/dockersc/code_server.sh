@@ -56,7 +56,7 @@ echo "El archivo docker-compose.yml se ha creado exitosamente en el directorio a
 
 # Levantar el servicio con Docker Compose
 echo "Levantando el contenedor con Docker Compose..."
-docker-compose up -d
+sudo docker-compose up -d
 
 # Verificar si el contenedor se levantó correctamente
 if [ $? -eq 0 ]; then
