@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Solicitar la ubicación del volumen
@@ -52,3 +53,15 @@ EOL
 
 # Confirmar creación del archivo
 echo "El archivo docker-compose.yml se ha creado exitosamente en el directorio actual."
+
+# Levantar el servicio con Docker Compose
+echo "Levantando el contenedor con Docker Compose..."
+docker-compose up -d
+
+# Verificar si el contenedor se levantó correctamente
+if [ $? -eq 0 ]; then
+  echo "El servicio Code-Server se ha iniciado correctamente."
+  echo "Accede al servicio en: http://localhost:${PUERTO} (o la IP de tu servidor)."
+else
+  echo "Hubo un error al intentar levantar el contenedor. Revisa el archivo docker-compose.yml y los logs."
+fi
