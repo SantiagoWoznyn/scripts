@@ -1,0 +1,103 @@
+Un servidor Nginx puede servir múltiples páginas o sitios web desde un solo contenedor (o desde múltiples contenedores). Esto se logra mediante la configuración de Virtual Hosts o ejecutando múltiples instancias de Nginx. A continuación, te explico cómo hacerlo en ambos enfoques:
+
+Enfoque 1: Un solo contenedor Nginx con Virtual Hosts
+Puedes configurar un solo contenedor Nginx para servir múltiples sitios (por ejemplo, tres portafolios) usando Virtual Hosts.
+
+Pasos para configurar Virtual Hosts:
+Crea carpetas para los sitios dentro del contenedor Nginx: Supongamos que tienes tres portafolios: portafolio1, portafolio2 y portafolio3. Copia sus archivos al contenedor:
+
+bash
+Copiar código
+docker cp ./portafolio1/. nginx-server:/var/www/portafolio1/
+docker cp ./portafolio2/. nginx-server:/var/www/portafolio2/
+docker cp ./portafolio3/. nginx-server:/var/www/portafolio3/
+Edita el archivo de configuración de Nginx: Copia el archivo de configuración del contenedor a tu sistema para editarlo:
+
+bash
+Copiar código
+docker cp nginx-server:/etc/nginx/nginx.conf ./nginx.conf
+Modifica el archivo nginx.conf para incluir bloques de servidor (server) para cada sitio:
+
+nginx
+Copiar código
+http {
+    server {
+        listen 80;
+        server_name portafolio1.local;
+        root /var/www/portafolio1;
+        index index.html;
+    }
+
+    server {
+        listen 80;
+        server_name portafolio2.local;
+        root /var/www/portafolio2;
+        index index.html;
+    }
+
+    server {
+        listen 80;
+        server_name portafolio3.local;
+        root /var/www/portafolio3;
+        index index.html;
+    }
+}
+Copia el archivo de configuración de vuelta al contenedor:
+
+bash
+Copiar código
+docker cp ./nginx.conf nginx-server:/etc/nginx/nginx.conf
+Reinicia el contenedor:
+
+bash
+Copiar código
+docker restart nginx-server
+Configura tu archivo hosts (localmente): Si accedes desde tu máquina local, edita tu archivo hosts para mapear los dominios ficticios a la IP de tu Raspberry Pi:
+
+plaintext
+Copiar código
+<IP_RPI> portafolio1.local
+<IP_RPI> portafolio2.local
+<IP_RPI> portafolio3.local
+Enfoque 2: Múltiples contenedores Nginx
+Otra opción es ejecutar tres contenedores de Nginx, uno para cada portafolio, y asignarles diferentes puertos o dominios.
+
+Pasos para múltiples contenedores:
+Crea y ejecuta un contenedor para cada portafolio:
+
+bash
+Copiar código
+docker run -d -p 8081:80 --name nginx-portafolio1 -v /ruta/portafolio1:/usr/share/nginx/html nginx
+docker run -d -p 8082:80 --name nginx-portafolio2 -v /ruta/portafolio2:/usr/share/nginx/html nginx
+docker run -d -p 8083:80 --name nginx-portafolio3 -v /ruta/portafolio3:/usr/share/nginx/html nginx
+Accede a los sitios por puerto:
+
+Portafolio 1: http://<IP_RPI>:8081
+Portafolio 2: http://<IP_RPI>:8082
+Portafolio 3: http://<IP_RPI>:8083
+Opcional: Configura un proxy inverso: Usa un contenedor Nginx adicional para actuar como proxy y asignar dominios en lugar de usar puertos:
+
+nginx
+Copiar código
+server {
+    listen 80;
+
+    server_name portafolio1.local;
+    location / {
+        proxy_pass http://<IP_RPI>:8081;
+    }
+
+    server_name portafolio2.local;
+    location / {
+        proxy_pass http://<IP_RPI>:8082;
+    }
+
+    server_name portafolio3.local;
+    location / {
+        proxy_pass http://<IP_RPI>:8083;
+    }
+}
+Conclusión
+Si quieres usar un solo contenedor, configura Virtual Hosts.
+Si prefieres separar cada portafolio completamente, usa múltiples contenedores con diferentes puertos o dominios.
+¿Te interesa algún enfoque en particular o un ejemplo más detallado? 
