@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Preguntar al usuario por las rutas para los volúmenes
-read -p "Introduce la ruta donde se encuentra el código de la API (./api): " api_path
 read -p "Introduce la ruta donde se encuentra el contenido de html5up-stellar (./html5up-stellar): " html_path
 read -p "Introduce la ruta donde se encuentra el archivo de configuración de Nginx (./nginx/default.conf): " nginx_conf_path
 
