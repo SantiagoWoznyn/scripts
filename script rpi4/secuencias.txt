@@ -12,22 +12,25 @@ https://github.com/SantiagoWoznyn/scripts/blob/main/script%20rpi4/OMV7_RPI4b.txt
 cambiar el puerto DESPUES DE INSTALARLO
 
 login via SSH
-run omv-firstaid
+run 
+sudo omv-firstaid
+
 Option-2 "configure web control panel"
-select port
+  select port
+ do not select por 80
 
 -------------------------------------------------------------------
 
-tambien en docker poner el script de las 500 templates
-https://github.com/Lissy93/portainer-templates
-https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json
-
-
 instalar  docker compose.....
-instalar tambien esto
+
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 darle permisos 
 
 y verificar la version de docker compose
 
+-------------------------------------------------
+
+tambien en docker poner el script de las 500 templates
+https://github.com/Lissy93/portainer-templates
+https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json
