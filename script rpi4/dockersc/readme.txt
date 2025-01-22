@@ -1,7 +1,9 @@
 descarga cada script de docker con esto :
 
-curl -ssl el link y sudo bash
+sudo curl -O el link
 
 ejemplo:
-curl -sSL https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20rpi4/dockersc/admin/gitea_install_rpi4.sh | sudo bash
+sudo curl -O https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20rpi4/dockersc/admin/gitea_install_rpi4.sh
 
+ https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20rpi4/dockersc
+este link es el directorio para buscar
