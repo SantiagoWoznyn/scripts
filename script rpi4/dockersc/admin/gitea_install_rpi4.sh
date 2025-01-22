@@ -60,7 +60,7 @@ services:
 EOL
 
 # Levantar el contenedor con Docker Compose
-docker-compose up -d
+sudo docker-compose up -d
 
 # Confirmar que los contenedores están corriendo
 if [ $? -eq 0 ]; then
