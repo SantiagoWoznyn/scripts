@@ -38,14 +38,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 # --- Verificar que Docker Compose esté instalado ---
 docker-compose --version
 
-# --- Preguntar al usuario el puerto para Portainer ---
-read -p "Por favor, ingrese el puerto en el que desea instalar Portainer (por ejemplo, 9000): " PORTAINER_PORT
-
-# --- Descargar e instalar Portainer en arm64 ---
-sudo docker run -d -p ${PORTAINER_PORT}:9000 --name=portainer --restart=always \
-  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data \
-  portainer/portainer-ce:linux-arm64
-
 # --- Mostrar mensaje de éxito ---
-echo "ZeroTier, Docker, Docker Compose y Portainer han sido instalados exitosamente."
-echo "Portainer está disponible en el puerto $PORTAINER_PORT."
+echo "ZeroTier, Docker, Docker Compose han sido instalados exitosamente."
