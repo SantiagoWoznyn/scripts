@@ -1,0 +1,27 @@
+Download the required files
+mkdir linkwarden && cd linkwarden
+curl -O https://raw.githubusercontent.com/linkwarden/linkwarden/refs/heads/main/docker-compose.yml
+curl -L https://raw.githubusercontent.com/linkwarden/linkwarden/refs/heads/main/.env.sample -o ".env"
+
+
+2. Configure the Environment Variables
+nano .env
+
+The required environment variables are:
+
+NEXTAUTH_URL=http://localhost:3000/api/v1/auth
+NEXTAUTH_SECRET=VERY_SENSITIVE_SECRET
+POSTGRES_PASSWORD=CUSTOM_POSTGRES_PASSWORD
+
+The only thing you MUST change here is NEXTAUTH_SECRET and POSTGRES_PASSWORD, 
+they both should be different secret phrases.
+
+The NEXTAUTH_URL should be changed to your domain name only if you are hosting it somewhere else.
+
+3. Run it!
+In the main folder (where you created the .env file) simply run the following:
+
+docker compose up
+
+After a few minutes (depending on your internet connection) you can access Linkwarden via http://localhost:3000 
+(or whichever hostname you deployed Linkwarden on).
