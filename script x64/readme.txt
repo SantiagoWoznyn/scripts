@@ -1,7 +1,11 @@
+sudo apt update
+sudo apt upgrade
+
+despues de esto :
+
 detalles de los scripts
 
 2 scripts que son install_sc_debian y install_sc_ubuntu 
-  lo que haces estos 2 scripts es un update un upgrade en los sistemas, tambien 
   instala opcionalmente zerotier
   instala docker y docker compose
 
