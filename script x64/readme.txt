@@ -11,3 +11,9 @@ detalles de los scripts
 
   instala portainer en un puerto especifico a eleccion y tambien a eleccion
   el path o directorio donde va a ir el volumen de portainer
+
+ej: wget https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20x64/install_sc_debian.sh
+
+   wget https://raw.githubusercontent.com/REPOSITORIO
+
+https://github.com/SantiagoWoznyn/scripts/edit/main/script%20x64/install_sc_debian.sh no lo va a leer
