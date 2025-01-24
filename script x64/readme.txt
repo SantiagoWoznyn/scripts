@@ -16,4 +16,6 @@ ej: wget https://raw.githubusercontent.com/SantiagoWoznyn/scripts/main/script%20
 
    wget https://raw.githubusercontent.com/REPOSITORIO
 
-https://github.com/SantiagoWoznyn/scripts/edit/main/script%20x64/install_sc_debian.sh no lo va a leer
+esto asi :   https://github.com/SantiagoWoznyn/scripts/edit/main/script%20x64/install_sc_debian.sh    no lo va a leer
+
+NO INSTALAR CASA OS
